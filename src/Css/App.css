@@ -1,0 +1,48 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 10vh;
+  padding: 20px;
+  color: white;
+}
+
+.Body-Container {
+  height: 80vh;
+  padding: 20px;
+  border-width: 5px;
+}
+
+.Display{
+  display: flex;
+  flex-direction: column;
+}
+
+.Maps{
+  background-color:red;
+  height:80vh;
+  width:96vw;
+}
+
+.Jobs{
+  border-width: 5px;
+  height:80vh;
+  width:35vw;
+  position: absolute;
+  z-index: 1;
+}
+
+.Jobitem{
+  background-color: #FAFAFA;
+  overflow: scroll;
+  height:80vh;
+  width:35vw;
+}
+
+.Jobitems{
+  border-style: solid;
+  border-width: 0.2px;
+  border-color: #CCCCCC;
+}
