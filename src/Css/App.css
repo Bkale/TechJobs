@@ -4,7 +4,7 @@
 
 .App-header {
   background-color: #222;
-  height: 10vh;
+  height: 8vh;
   padding: 20px;
   color: white;
 }
@@ -23,18 +23,42 @@
 .Maps{
   background-color:red;
   height:80vh;
-  width:96vw;
+  width:100vw;
+  padding-left: 0;
+  margin-left: -20px;
 }
-
+.TempContainer{
+  border-width: 5px;
+  height:80vh;
+  width:70vw;
+  position: absolute;
+  z-index: 1;
+  margin-left: -20px;
+}
 .Jobs{
   border-width: 5px;
   height:80vh;
   width:35vw;
   position: absolute;
   z-index: 1;
+  margin-left: -20px;
+
+}
+
+.Details{
+  display: flex;
+  float: right;
+  background-color: blue;
+  border-width: 5px;
+  height:80vh;
+  width:36vw;
+  position: relative;;
+  z-index: 1;
 }
 
 .Jobitem{
+  position: absolute;
+  z-index: 1;
   background-color: #FAFAFA;
   overflow: scroll;
   height:80vh;

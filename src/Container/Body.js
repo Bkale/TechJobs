@@ -9,8 +9,26 @@ class Body extends Component{
     this.state = {
       searchword: "",
       venues:[],
-      jobs: []
+      jobs: [],
+      location: {
+        lat: 40.7400081,
+        lng: -73.9897434
+      },
+      jobsdisplay: "none",
+      detailsdisplay: "none"
     }
+  }
+
+  componentDidMount(){
+    const geolocation = (navigator.geolocation ? navigator.geolocation : console.log("geolocation failed"));
+    geolocation.getCurrentPosition((position) => {
+      this.setState({
+        location:{
+          lat:position.coords.latitude,
+          lng:position.coords.longitude
+        }
+      })
+      })
   }
 
   handleChange(e){
@@ -19,35 +37,46 @@ class Body extends Component{
       searchword: e.target.value
     })
   }
+
   handleSubmit(e){
     e.preventDefault()
     const params = { searchword: this.state.searchword}
     Helpers.searchAuthenticJobs(params).then((res) =>{
       this.setState({
         venues: res.data.rsp.listings.listing,
-        jobs: res.data.rsp.listings.listing
+        jobs: res.data.rsp.listings.listing,
+        jobsdisplay: "block"
       })
     })
   }
 
+  handleStyle(param){
+    this.setState({
+      detailsdisplay:param
+    })
+  }
+
   render(){
-    const location = {
-      lat: 40.7575285,
-      lng: -73.9884469
-    }
     return(
       <div className="Body-Container">
+
         <form>
-          <input type="text" onChange={(e) => this.handleChange(e)}></input>
+          <input type="text" onChange={(e) => this.handleChange(e)} placeholder="HTML, CSS, React" />
           <button onClick={(e) => this.handleSubmit(e)}>Submit</button>
         </form>
+
         <div className="Display">
             <div className="Maps">
-              <Maps center={location} markers={this.state.venues}/>
+              <Maps center={this.state.location} markers={this.state.venues}/>
             </div>
 
-            <div className="Jobs">
-              <Jobs jobs={this.state.jobs} />
+            <div className="TempContainer">
+              <div className="Jobs" style={{display:this.state.jobsdisplay}}>
+                <Jobs jobs={this.state.jobs} parentstyle={this.handleStyle.bind(this)}/>
+              </div>
+              <div className="Details" style={{display:this.state.detailsdisplay}} jobs={this.state.jobs}>
+                hello
+              </div>
             </div>
         </div>
       </div>
