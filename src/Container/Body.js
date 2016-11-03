@@ -14,8 +14,7 @@ class Body extends Component{
         lat: 40.7400081,
         lng: -73.9897434
       },
-      jobsdisplay: "none",
-      detailsdisplay: "none"
+      jobsDisplay: "none"
     }
   }
 
@@ -45,39 +44,29 @@ class Body extends Component{
       this.setState({
         venues: res.data.rsp.listings.listing,
         jobs: res.data.rsp.listings.listing,
-        jobsdisplay: "block"
+        jobsDisplay: "block"
       })
     })
   }
 
-  handleStyle(param){
-    this.setState({
-      detailsdisplay:param
-    })
-  }
+
 
   render(){
     return(
       <div className="Body-Container">
 
         <form>
-          <input type="text" onChange={(e) => this.handleChange(e)} placeholder="HTML, CSS, React" />
-          <button onClick={(e) => this.handleSubmit(e)}>Submit</button>
+          <input className="Textbox" type="text" onChange={(e) => this.handleChange(e)} placeholder="HTML, CSS, React" />
+          <button className="Submit" onClick={(e) => this.handleSubmit(e)}>Submit</button>
         </form>
 
         <div className="Display">
             <div className="Maps">
               <Maps center={this.state.location} markers={this.state.venues}/>
             </div>
-
-            <div className="TempContainer">
-              <div className="Jobs" style={{display:this.state.jobsdisplay}}>
-                <Jobs jobs={this.state.jobs} parentstyle={this.handleStyle.bind(this)}/>
+              <div className="Jobs" style={{display:this.state.jobsDisplay}}>
+                <Jobs jobs={this.state.jobs} />
               </div>
-              <div className="Details" style={{display:this.state.detailsdisplay}} jobs={this.state.jobs}>
-                hello
-              </div>
-            </div>
         </div>
       </div>
     )

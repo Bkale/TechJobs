@@ -1,19 +1,19 @@
 .App {
   text-align: center;
 }
-
-.App-header {
-  background-color: #222;
-  height: 8vh;
-  padding: 20px;
-  color: white;
-}
-
-.Body-Container {
+.Body-Container{
+  background-color: #380009;
   height: 80vh;
   padding: 20px;
   border-width: 5px;
 }
+.App-header {
+  background-color: #0B2F35;
+  height: 8vh;
+  padding: 20px;
+  color: #CEB992;
+}
+
 
 .Display{
   display: flex;
@@ -27,46 +27,121 @@
   padding-left: 0;
   margin-left: -20px;
 }
-.TempContainer{
-  border-width: 5px;
-  height:80vh;
-  width:70vw;
-  position: absolute;
-  z-index: 1;
-  margin-left: -20px;
-}
 .Jobs{
   border-width: 5px;
   height:80vh;
-  width:35vw;
   position: absolute;
   z-index: 1;
   margin-left: -20px;
-
 }
-
-.Details{
-  display: flex;
-  float: right;
-  background-color: blue;
+.JobsContainer{
   border-width: 5px;
   height:80vh;
-  width:36vw;
-  position: relative;;
-  z-index: 1;
-}
-
-.Jobitem{
+  width:35vw;
+  overflow: scroll;
   position: absolute;
   z-index: 1;
-  background-color: #FAFAFA;
-  overflow: scroll;
+}
+.Jobitem{
+  border-radius: 10px;
   height:80vh;
   width:35vw;
+  background-color: #989788;
+  position: absolute;
+  z-index: 1;
+  overflow: scroll;
 }
-
+.Details{
+  margin-top: 10px;
+  border-radius: 5px;
+  height:80vh;
+  width:35vw;
+  background-color: #F8F4E3;
+  float: right;
+  position: absolute;
+  z-index: 1;
+  overflow: scroll;
+}
+.Job-desc p {
+    width: 32vw;
+    margin: 0 auto;
+}
+.Details_header{
+  width: 60vh;
+  height: 10vh;
+}
+.Details_title{
+text-align: center;
+}
+.Details_close{
+  float: right;
+  width: 3vw;
+  height:4vh;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.DetailsText{
+  width: 20vw;
+  height: 40vh;
+  overflow: scroll;
+  word-wrap: break-word;
+}
 .Jobitems{
+  cursor: pointer;
   border-style: solid;
   border-width: 0.2px;
   border-color: #CCCCCC;
+}
+
+.Jobitems h3{
+  text-align: left;
+  font-size: 20px;
+}
+
+.Jobitems button{
+  text-align: left;
+  background-color: #F8F4E3;
+  font-size: 15px;
+}
+
+.Jobitems button:hover{
+  cursor: pointer;
+  background-color: #F8F4D3;
+}
+
+.Jobitems a{
+  border-radius: 3px;
+  color: #380009;
+  font-size: 15px;
+}
+
+.Apply{
+  height: 4vh;
+  width: 6vw;
+  position: relative;
+}
+
+.Textbox{
+  height: 3vh;
+  width: 15vw;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.Submit{
+  background-color: #720E07;
+  color: #EECF6D;
+  height: 4vh;
+  width: 5vw;
+  border-radius: 3px;
+  margin-left: 5px;
+}
+
+.close{
+  position: absolute;
+}
+
+.close hover{
+    cursor: pointer;
 }
