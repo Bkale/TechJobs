@@ -9,7 +9,6 @@ class Details extends Component{
   render(){
     const jobdetails = this.props.jobdetail
     const description = this.props.jobdetail.description ? this.props.jobdetail.description.replace(/<\/?[^>]+(>|$)/g, "") : "";
-    console.log(jobdetails);
     return(
       <div className="Job-desc">
         <div className="Details_header">

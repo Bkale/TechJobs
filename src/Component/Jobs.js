@@ -33,17 +33,33 @@ class Jobs extends Component{
   }
 
   renderJobs(job,i){
-    return(
-        <div key={i} className="Jobitems">
-          <button style={{height: '100%', width:'100%'}} onClick={(e) => this.handledisplay(e,job)}>
-            <h3>Job Tilte: {job.title}</h3>
-            <h4>Company: {job.company.name}</h4>
-            Duration: {job.type.name}<br></br>
-            Location: {job.company.location.name}<br></br>
-            {job.post_date}job.apply_url
-          </button>
-        </div>
-    )
+    console.log(job);
+
+    if(job.title && job.company.name && job.type.name && job.company.location){
+      return(
+          <div key={i} className="Jobitems">
+            <button style={{height: '100%', width:'100%'}} onClick={(e) => this.handledisplay(e,job)}>
+              <h3>Job Tilte: {job.title ? job.title : ""}</h3>
+              <h4>Company: {job.company.name ? job.company.name : ""}</h4>
+              Duration: {job.type.name ? job.type.name : ""}<br></br>
+              Location: {job.company.location.name ? job.company.location.name: ""}<br></br>
+              {job.post_date}
+            </button>
+          </div>
+      )
+    }
+    else{
+      return(
+          <div key={i} className="Jobitems">
+            <button style={{height: '100%', width:'100%'}} onClick={(e) => this.handledisplay(e,job)}>
+              <h3>Job Tilte: {job.title ? job.title : ""}</h3>
+              <h4>Company: {job.company.name ? job.company.name : ""}</h4>
+              Duration: {job.type.name ? job.type.name : ""}<br></br>
+              {job.post_date}
+            </button>
+          </div>
+      )
+    }
   }
 
   render(){

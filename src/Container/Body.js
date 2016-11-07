@@ -8,6 +8,7 @@ class Body extends Component{
     super();
     this.state = {
       searchword: "",
+      searchlocation:"",
       venues:[],
       jobs: [],
       location: {
@@ -30,16 +31,22 @@ class Body extends Component{
       })
   }
 
-  handleChange(e){
+  handleSearchWordChange(e){
     e.preventDefault()
     this.setState({
       searchword: e.target.value
     })
   }
 
+  handleSearchLocationChange(e){
+    e.preventDefault()
+    this.setState({
+      searchlocation: e.target.value
+    })
+  }
   handleSubmit(e){
     e.preventDefault()
-    const params = { searchword: this.state.searchword}
+    const params = { searchword: this.state.searchword, location:this.state.searchlocation}
     Helpers.searchAuthenticJobs(params).then((res) =>{
       this.setState({
         venues: res.data.rsp.listings.listing,
@@ -56,13 +63,14 @@ class Body extends Component{
       <div className="Body-Container">
 
         <form>
-          <input className="Textbox" type="text" onChange={(e) => this.handleChange(e)} placeholder="HTML, CSS, React" />
+          <input className="Textbox" type="text" onChange={(e) => this.handleSearchWordChange(e)} placeholder="HTML, CSS, React, Web developer" />
+          <input className="Textbox" type="text" onChange={(e) => this.handleSearchLocationChange(e)} placeholder="city or state" />
           <button className="Submit" onClick={(e) => this.handleSubmit(e)}>Submit</button>
         </form>
 
         <div className="Display">
             <div className="Maps">
-              <Maps center={this.state.location} markers={this.state.venues}/>
+              <Maps center={this.state.location} markers={this.state.venues} searchword={this.state.searchword} />
             </div>
               <div className="Jobs" style={{display:this.state.jobsDisplay}}>
                 <Jobs jobs={this.state.jobs} />
