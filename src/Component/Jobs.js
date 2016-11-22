@@ -42,7 +42,6 @@ class Jobs extends Component{
               <h3>Job Tilte: {job.title ? job.title : ""}</h3>
               <h4>Company: {job.company.name ? job.company.name : ""}</h4>
               Duration: {job.type.name ? job.type.name : ""}<br></br>
-              Location: {job.company.location.name ? job.company.location.name: ""}<br></br>
               {job.post_date}
             </button>
           </div>
