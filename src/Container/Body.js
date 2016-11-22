@@ -63,7 +63,7 @@ class Body extends Component{
       <div className="Body-Container">
 
         <form>
-          <input className="Textbox" type="text" onChange={(e) => this.handleSearchWordChange(e)} placeholder="HTML, CSS, React, Web developer" />
+          <input className="Textbox" type="text" onChange={(e) => this.handleSearchWordChange(e)} placeholder="PHP, React, Web developer" />
           <input className="Textbox" type="text" onChange={(e) => this.handleSearchLocationChange(e)} placeholder="city or state" />
           <button className="Submit" onClick={(e) => this.handleSubmit(e)}>Submit</button>
         </form>
