@@ -6,7 +6,7 @@ class Maps extends Component{
   render(){
 
     const markers = this.props.markers.map((venue,i) => {
-      if(venue.company.location){
+      if(venue.company.location != "undefined" ){
         const marker = {
           position:{
             lat: typeof(parseInt(venue.company.location.lat)) == "number" ? parseInt(venue.company.location.lat) : console.log("error"),
